@@ -2,19 +2,17 @@
 
 echo "Este script verifica se o pacote esta ou não instalado, posteriormente instala o mesmo se necessário"
 echo
-#echo -n "Informe o nome do Pacote: "
-#read nome
 pacote = $(dpkg --get-selections | grep "aria2" ) 
 echo 
-echo -n "Verificando se o Pacote $nome esta instalado."
+echo -n "Verificando se o Pacote 'aria2' esta instalado."
 sleep 2
 if [ -n "$pacote" ] ;
 then echo
-     echo "Pacote $nome já instalado"
+     echo "Pacote 'aria2' já instalado"
 else echo
-     echo "Pacote $nome Necessário -> Não instalado"
+     echo "Pacote 'aria2' Necessário -> Não instalado"
      echo "Instalando automaticamente o Pacote..."
-     sudo apt-get install $nome
+     sudo apt-get install aria2
 fi
 
 for i in $(seq 1 20); do
